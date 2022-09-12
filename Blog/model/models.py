@@ -17,3 +17,7 @@ class Comment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
     content = models.CharField(null=True, max_length=500)
     date = models.DateTimeField(datetime.now())
+
+# que es un modelo?
+# los modelos son lo que conocemos como clases 
+# estos crean objetos por instancias desde nuestras views.

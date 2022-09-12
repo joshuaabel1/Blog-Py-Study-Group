@@ -24,9 +24,14 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("", home, name='home'),
-    path('login/', login, name="inicio"),
+    path('home', home, name='home'),
+    path('signup', signup, name="signup"),
+    path('signin', signin, name="signin"),
     path('logout', auth_views.LogoutView.as_view(), name='logout'),
     path('social-auth/', include('social_django.urls', namespace='social')),
 ]
 urlpatterns+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+# url que hace?
+# las url son las direciones donde apuntan nuestras views,
+# aqui importamos nuestras views y le damos una url para que se direcciones .

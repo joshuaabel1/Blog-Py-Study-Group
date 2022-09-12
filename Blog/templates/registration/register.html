@@ -2,6 +2,7 @@
 {% load bootstrap5 %}
 {% load static %}
 
+
 {% block content  %}
 
 <!DOCTYPE html>
@@ -11,9 +12,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../static/login.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" >
-    <title>signin</title>
+    <title>register</title>
 </head>
 <body>  
 
@@ -23,9 +23,9 @@
 
                 <div class="card">
                     <div class="card-body">
-                        <h2>signin</h2>
+                        <h2>Register</h2>
                         <hr>
-                        <form method="POST">
+                        <form action="" method="POST">
                             {% csrf_token %}
                             {{ form| crispy}} 
                             <div class="d-flex justify-content-around">
