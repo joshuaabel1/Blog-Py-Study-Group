@@ -1,8 +1,8 @@
 from http.client import HTTPResponse
 from sqlite3 import IntegrityError
+from turtle import title
 from django.shortcuts import render, redirect
 from .model.models import Post, Comment
-from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
@@ -59,7 +59,11 @@ def signin(request):
 
 
 def viewclass(request):
-    pass
+    user = User.objects.create(username='1122', 
+                        password='password11221')
+    post = Post.objects.create(user = user, title= 'pruebqwa', content= 'hqwola')
+    print(Post.objects.all())
+    return HttpResponse('post create')
     # que es una view
     # ¿Qué son las vistas en Python?
     # Un función de vista o una vista, como es conocida generalmente, 
