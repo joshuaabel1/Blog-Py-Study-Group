@@ -29,9 +29,9 @@
                             {% csrf_token %}
                             {{ form| crispy}} 
                             <div class="d-flex justify-content-around">
-                            <a href="{% url  'social:begin' 'github' %}"> LOGIN WITH GITHUB </a> | 
+                            <a href="{% url  'social:begin' 'github' %}" class="btn btn-outline-success float rigth"> LOGIN WITH GITHUB </a> | 
                             
-                            <input type="submit" value= "Ingresar" class="btn btn-outline-success float rigth">
+                            <input type="submit" value= "register" class="btn btn-outline-success float rigth">
                             </div>
                         </form>
 
