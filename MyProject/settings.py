@@ -155,14 +155,17 @@ if not DEBUG:
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-LOGIN_URL = 'login'
-LOGIN_REDIRECT_URL = ''
+LOGIN_URL = 'signin'
+LOGIN_REDIRECT_URL = 'home'
 LOGOUT_URL = 'logout'
 LOGOUT_REDIRECT_URL = 'home'
 SOCIAL_AUTH_GITHUB_KEY = os.getenv('SOCIAL_AUTH_GITHUB_KEY')
 SOCIAL_AUTH_GITHUB_SECRET = os.getenv('SOCIAL_AUTH_GITHUB_SECRET')
-
-
+# os.getenv('SOCIAL_AUTH_GITHUB_KEY')
+# os.getenv('SOCIAL_AUTH_GITHUB_SECRET')
+# SOCIAL_AUTH_REDIRECT_IS_HTTPS = True
+# SOCIAL_AUTH_FIELDS_STORED_IN_SESSION = ['state']
+# SESSION_COOKIE_SECURE = False
 # que hace setting?
 # En el archivo setting tenemos el funcionamiento de nuestro sitio aca, 
 # agregamos permisos variables aplicaciones que use nuestro sitio

@@ -71,15 +71,15 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="signin">login</a>
                     </li>
-                    {% if user.is_aunthenticated %}
+                    {% if user.is_authenticated %}
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="logout">logout</a>
-                    
+                    </li>
                     {% else %}
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="signup">signup</a>
                     {% endif %}
-                    </li>
+                    
                     </li>
                 </ul>
             </div>
