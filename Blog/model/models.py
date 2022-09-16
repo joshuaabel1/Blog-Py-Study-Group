@@ -9,8 +9,8 @@ class Post(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(null=True, max_length=120)
     content = models.CharField(null=True, max_length=500)
-    date = models.CharField(null=True, max_length=120)
-
+    date = models.DateTimeField(datetime.now())
+    
 class Comment(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
