@@ -8,4 +8,4 @@ pip install -r requirements.txt
 python manage.py collectstatic --no-input
 python manage.py makemigrations Blog
 python manage.py migrate
-python manage.py createsuperuser --email=admin@admin.com --noinput
+python manage.py createsuperuser --email=admin1@admin.com --noinput
