@@ -8,3 +8,4 @@ django-bootstrap-v5==1.0.11
 django-crispy-forms==1.14.0
 importlib-metadata==4.12.0
 dj-database-url==1.0.0
+psycopg2==2.9.3
