@@ -58,13 +58,7 @@ def signin(request):
         return redirect('home')
 
 
-def viewclass(request):
-    user = User.objects.create(username='1122', 
-                        password='password11221')
-    post = Post.objects.create(user = user, title= 'pruebqwa', content= 'hqwola')
-    print(Post.objects.all())
-    return HttpResponse('post create')
-    # que es una view
+
     # ¿Qué son las vistas en Python?
     # Un función de vista o una vista, como es conocida generalmente, 
     # es una función en Python que hace una solicitud Web y devuelve una respuesta Web, 
