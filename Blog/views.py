@@ -1,6 +1,5 @@
 from http.client import HTTPResponse
 from sqlite3 import IntegrityError
-from turtle import title
 from django.shortcuts import render, redirect
 from .model.models import Post, Comment
 from django.contrib.auth.decorators import login_required
@@ -33,16 +32,17 @@ def signup(request):
                                 'error': 'user already exist' 
                                 })  
         return HttpResponse('password do not match')
+        #integrated registration form in django
 
 
 def home(request):
     return render(request, 'index.html')
 
+
 @login_required
 def signout(request):
     logout(request)
     return redirect('home')
-
 
 
 def signin(request):
@@ -58,6 +58,16 @@ def signin(request):
         return redirect('home')
 
 
+
+def page_notfound(request):
+    return render(request,'404.html')
+
+
+def handler404(request, exception):
+    context = {}
+    response = render(request, "404.html", context=context)
+    response.status_code = 404
+    return response
 
     # ¿Qué son las vistas en Python?
     # Un función de vista o una vista, como es conocida generalmente, 

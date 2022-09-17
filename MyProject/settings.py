@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
+
 import dj_database_url
 import os
 from dotenv import load_dotenv
@@ -28,8 +29,11 @@ SECRET_KEY = os.getenv('SECRET_KEY', default='your secret key')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'RENDER' not in os.getenv('DEBUG')
+DEBUG= False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS =  ['localhost',
+    '127.0.0.1',
+    'blog-python.onrender.com',]
 
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
 if RENDER_EXTERNAL_HOSTNAME:
@@ -51,6 +55,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'Blog.adminprotect.RestrictStaffToAdminMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'social_django.middleware.SocialAuthExceptionMiddleware',
@@ -164,8 +169,8 @@ LOGOUT_URL = 'logout'
 LOGOUT_REDIRECT_URL = 'home'
 SOCIAL_AUTH_GITHUB_KEY = os.getenv('SOCIAL_AUTH_GITHUB_KEY')
 SOCIAL_AUTH_GITHUB_SECRET = os.getenv('SOCIAL_AUTH_GITHUB_SECRET')
-DJANGO_SUPERUSER_PASSWORD=os.getenv('DJANGO_SUPERUSER_PASSWORD')
-DJANGO_SUPERUSER_USERNAME=os.getenv('DJANGO_SUPERUSER_USERNAME') 
+# DJANGO_SUPERUSER_PASSWORD=os.getenv('DJANGO_SUPERUSER_PASSWORD')
+# DJANGO_SUPERUSER_USERNAME=os.getenv('DJANGO_SUPERUSER_USERNAME') 
 
 # os.getenv('SOCIAL_AUTH_GITHUB_KEY')
 # os.getenv('SOCIAL_AUTH_GITHUB_SECRET')
