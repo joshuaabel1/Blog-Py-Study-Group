@@ -1,0 +1,27 @@
+{% extends 'base.html' %} 
+{% block content %}
+
+
+
+<body>
+<h1>Posts</h1>
+<ul>
+    {% for post in posts %}
+    <div class="row align-items-md-stretch">
+        <div class="col-md-6">
+            <div class="h-100 p-5 text-bg-dark rounded-3">
+                <div class="border border-2 rounded-top p-2 shadow p-3 mb-5 bg-body rounded">
+                    
+                    <h3>{{post.title}}</h3>
+                    <p>{{post.user}}</p>   
+                    <p >{{post.content}}</p>
+                    <p >{{post.date}}</p>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</ul>
+
+{% endblock %}

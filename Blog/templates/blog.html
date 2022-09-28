@@ -29,3 +29,22 @@
 
 
 {% endblock content %}
+
+
+
+<h1>Posts</h1>
+<ul>
+    {% for post in posts %}
+    <div class="row align-items-md-stretch">
+        <div class="col-md-6">
+            <li>
+                <h2>{{post.title}}</h1>
+                <p>{{post.user}}</p>   
+                <p>{{post.content}}</p>
+            <p>{{post.date}}</p>
+            </li>
+        </div>
+    </div>
+    {% endfor %}
+</ul>
+{% endblock %}

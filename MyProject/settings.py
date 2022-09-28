@@ -28,7 +28,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv('SECRET_KEY', default='your secret key')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+# DEBUG = 'RENDER' not in os.getenv('DEBUG')
+DEBUG =True
 
 
 ALLOWED_HOSTS =  ['localhost',
@@ -142,10 +143,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_DIR = [os.path.join(BASE_DIR, 'static'),]
+STATICFILES_DIR = [os.path.join(BASE_DIR, 'image/'),]
 
 # Following settings only make sense on production and may break development environments.
 if not DEBUG:
@@ -180,4 +180,9 @@ SOCIAL_AUTH_GITHUB_SECRET = os.getenv('SOCIAL_AUTH_GITHUB_SECRET')
 # que hace setting?
 # En el archivo setting tenemos el funcionamiento de nuestro sitio aca, 
 # agregamos permisos variables aplicaciones que use nuestro sitio
-# .
+# .\
+HTTPS = 'on'
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+# https://127.0.0.1:8000/
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')

@@ -24,11 +24,14 @@ handler404 = 'Blog.views.handler404'
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', home, name='home'),
+    path('', view_post_user, name='home'),
     path('signup', signup, name="signup"),
     path('signin', signin, name="signin"),
-    # path('pagenotfound', page_notfound, name="page_notfound"),
+    path('create_post', create_post, name="create_post"),
+    path('list', view_post, name="list"),
+    path('post_detail/<int:post_id>', post_detail, name="post_detail"),
     path('logout', auth_views.LogoutView.as_view(), name='logout'),
+    path('post/<int:post_id>/delete', delete_post, name='delete_post'),
     path('social-auth/', include('social_django.urls', namespace='social')),
 ]
 urlpatterns+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
