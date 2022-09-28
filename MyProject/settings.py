@@ -53,6 +53,8 @@ INSTALLED_APPS = [
     'social_django',  
     'bootstrap5',
     'crispy_forms',
+    "whitenoise.runserver_nostatic",
+    "django.contrib.staticfiles",
 ]
 
 MIDDLEWARE = [
@@ -151,7 +153,10 @@ STATICFILES_DIR = [os.path.join(BASE_DIR, 'image/'),]
 if not DEBUG:
     # Tell Django to copy statics to the `staticfiles` directory
     # in your application directory on Render.
+    STATIC_HOST = "https://blog-python.onrender.com/"
+    STATIC_URL = STATIC_HOST + "/static/"
     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+    
 
     # Turn on WhiteNoise storage backend that takes care of compressing static files
     # and creating unique names for each version so they can safely be cached forever.
