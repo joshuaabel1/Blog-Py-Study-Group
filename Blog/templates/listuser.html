@@ -10,7 +10,7 @@
     <div class="col-md-6">
         <div class="card shadow p-3" style="width: 18rem; ">
             {% if post.image %}
-            <img src='{{ post.image.url }}' class="card-img-top">
+            <img src="{{ post.image }}" class="card-img-top">
             {% endif %}
                 <div class="card-body">
                         <h5 class="card-title">{{post.title}}</h5>
