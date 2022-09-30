@@ -177,17 +177,11 @@ SOCIAL_AUTH_GITHUB_SECRET = os.getenv('SOCIAL_AUTH_GITHUB_SECRET')
 HTTPS = 'on'
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
-# https://127.0.0.1:8000/
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 
 
 
-# if not DEBUG:
-    # Tell Django to copy statics to the `staticfiles` directory
-    # in your application directory on Render.
-    # STATIC_HOST = "http://127.0.0.1:8000"
-    # STATIC_URL = STATIC_HOST + "/static/"
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
