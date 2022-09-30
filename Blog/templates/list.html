@@ -3,25 +3,28 @@
 
 
 
-<body>
-<h1>Posts</h1>
+<h1 >Inicio</h1>
 <ul>
-    {% for post in posts %}
-    <div class="row align-items-md-stretch">
-        <div class="col-md-6">
-            <div class="h-100 p-5 text-bg-dark rounded-3">
-                <div class="border border-2 rounded-top p-2 shadow p-3 mb-5 bg-body rounded">
-                    
-                    <h3>{{post.title}}</h3>
-                    <p>{{post.user}}</p>   
-                    <p >{{post.content}}</p>
-                    <p >{{post.date}}</p>
-                    
-                </div>
+    <l1>
+        {% for post in posts %}
+    <div class="col-md-6">
+        <div class="card shadow p-3" style="width: 18rem; ">
+            {% if post.image %}
+            <img src="{{ post.image.url }}" class="card-img-top">
+            {% endif %}
+                <div class="card-body">
+                        <h5 class="card-title">{{post.title}}</h5>
+                        <p class="card-text">{{post.user}}</p>   
+                        <p >{{post.content}}</p>
+                        <p >{{post.date}}</p>
+                        
             </div>
         </div>
     </div>
+    <br>
     {% endfor %}
-</ul>
+    </l1>
 
+
+</ul>
 {% endblock %}

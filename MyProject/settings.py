@@ -32,9 +32,7 @@ DEBUG = False
 
 
 
-ALLOWED_HOSTS =  ['localhost',
-    '127.0.0.1',
-    'blog-python.onrender.com',]
+ALLOWED_HOSTS =  ['*']
 
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
 if RENDER_EXTERNAL_HOSTNAME:
@@ -53,6 +51,8 @@ INSTALLED_APPS = [
     'social_django',  
     'bootstrap5',
     'crispy_forms',
+    "whitenoise.runserver_nostatic",   
+    
 ]
 
 MIDDLEWARE = [
@@ -143,18 +143,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = '/staticfiles/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'image')
-STATICFILES_DIR = [os.path.join(BASE_DIR, 'image'),]
 
 # Following settings only make sense on production and may break development environments.
-if not DEBUG:
-    # Tell Django to copy statics to the `staticfiles` directory
-    # in your application directory on Render.
-    STATIC_HOST = "https://blog-python.onrender.com/"
-    STATIC_URL = STATIC_HOST + "static/"
-    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-    
 
     # Turn on WhiteNoise storage backend that takes care of compressing static files
     # and creating unique names for each version so they can safely be cached forever.
@@ -189,5 +179,28 @@ SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 # https://127.0.0.1:8000/
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+
+
+
+# if not DEBUG:
+    # Tell Django to copy statics to the `staticfiles` directory
+    # in your application directory on Render.
+    # STATIC_HOST = "http://127.0.0.1:8000"
+    # STATIC_URL = STATIC_HOST + "/static/"
+
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/3.0/howto/static-files/
+
+# This setting tells Django at which URL static files are going to be served to the user.
+# Here, they well be accessible at your-domain.onrender.com/static/...
+
+MEDIA_URL = '/media/'
+STATIC_URL = '/static/'
+MEDIA_ROOT = BASE_DIR / "media"
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATICFILES_DIRS = [(os.path.join(BASE_DIR, 'static'))]
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
 

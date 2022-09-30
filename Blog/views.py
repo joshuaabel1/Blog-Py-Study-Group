@@ -111,13 +111,13 @@ def delete_post(request, post_id):
 @login_required
 def post_detail(request, post_id):
     if request.method == 'GET':
-        post = get_object_or_404(Post, pk=post_id, user=request.user)
-        form = PostForm(instance=post)
+        post = get_object_or_404(Post, pk=post_id, user=request.user, )
+        form = PostForm(request.FILES, instance=post)
         return render(request, 'detaillpost.html', {'posts': post, 'form': form})
     else:
         try:
             post = get_object_or_404(Post, pk=post_id, user=request.user)
-            form = PostForm(request.POST, instance=post)
+            form = PostForm(request.POST, request.FILES, instance=post)
             form.save()
             return redirect('home')
         except ValueError:
