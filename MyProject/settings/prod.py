@@ -13,8 +13,6 @@ DATABASES = {'default': dj_database_url.config(default=DATABASE_URL)}
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
 
-# 'yDPfxhUORuOgzrA6DsgenA6OQH2zLHIKAQ1Oa2zj'
-# 'AKIAY2QZV7UQ34WMTU6U'
 
 AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')
