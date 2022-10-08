@@ -32,3 +32,5 @@ STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
                                                                                                                                                                                                                                                                                                                                                         
 AWS_DEFAULT_REGION=os.getenv('AWS_DEFAULT_REGION')
+
+DEFAULT_FILE_STORAGE = 'mysite.storage_backends.MediaStorage'

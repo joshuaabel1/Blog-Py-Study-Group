@@ -165,8 +165,3 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 # This setting tells Django at which URL static files are going to be served to the user.
 # Here, they well be accessible at your-domain.onrender.com/static/...
 
-MEDIA_URL = '/media/'
-STATIC_URL = '/static/'
-MEDIA_ROOT = BASE_DIR / "media"
-STATIC_ROOT = BASE_DIR / 'staticfiles'
-STATICFILES_DIRS = [(os.path.join(BASE_DIR, 'static'))]
