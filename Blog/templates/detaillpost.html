@@ -5,21 +5,23 @@
 {{posts.title}}
 
 {{error}}
+<div class="d-flex justify-content-around"></div>
 
 <form method="POST">
   {% csrf_token %}
   {{form.as_p}}
-
-  <button>
+  <button class="btn btn-outline-success float rigth">
     Update
   </button>
 </form>
 
-<form action="{% url 'delete_post' posts.id %}" method="POST">
-  {% csrf_token %}
-  <button>
-    delete
-  </button>
+  
+  <form action="{% url 'delete_post' posts.id %}" method="POST">
+    {% csrf_token %}
+    <button class="btn btn-outline-success float rigth">
+      delete
+    </button>
 </form>
+</div>
 
 {% endblock %}

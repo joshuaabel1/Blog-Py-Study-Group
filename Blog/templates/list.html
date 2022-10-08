@@ -17,7 +17,7 @@
                         <p class="card-text">{{post.user}}</p>   
                         <p >{{post.content}}</p>
                         <p >{{post.date}}</p>
-                        
+                        <a href="{% url 'post_detail' post.id %}" class="btn btn-primary">Go detaill</a>   
             </div>
         </div>
     </div>

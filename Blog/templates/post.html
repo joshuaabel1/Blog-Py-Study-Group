@@ -5,12 +5,15 @@
 
 <h1>Create a post</h1>
 <br>
+<div class="mb-3 row">
+  <div class="col-sm-10">
+  {{error}}
+  <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{form}}
 
-{{error}}
-<form method="POST" enctype="multipart/form-data">
-  {% csrf_token %}
-  {{form}}
-
-  <button>Save</button>
-</form>
+    <button>Save</button>
+  </form>
+</div>
+</div>
 {% endblock %}
