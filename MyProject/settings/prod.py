@@ -24,13 +24,13 @@ AWS_S3_OBJECT_PARAMETERS = {
 AWS_LOCATION = 'static'
 
 STATICFILES_DIRS = [
-        os.path.join(BASE_DIR, 'mysite/static'),
+        os.path.join(BASE_DIR, '/static'),
     ]
 STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
                                                                                                                                                                                                                                                                                                                                                         
 AWS_DEFAULT_REGION=os.getenv('AWS_DEFAULT_REGION')
 
-DEFAULT_FILE_STORAGE = 'mysite.storage_backends.MediaStorage'
-PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
+DEFAULT_FILE_STORAGE = 'Blog.storage_backends.MediaStorage'
+# PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
