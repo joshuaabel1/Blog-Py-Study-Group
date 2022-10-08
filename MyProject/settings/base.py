@@ -156,11 +156,6 @@ CSRF_COOKIE_SECURE = True
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 
-MEDIA_URL = '/media/'
-STATIC_URL = '/static/'
-MEDIA_ROOT = BASE_DIR / "media"
-STATIC_ROOT = BASE_DIR / 'staticfiles'
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
