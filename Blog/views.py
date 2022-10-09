@@ -80,7 +80,7 @@ def create_post(request):
                 new_task.save()
                 return redirect('home')
         except ValueError:
-            return render(request, 'post.html', {"form": PostForm, "error": "Error creating task."})
+            return render(request, 'post.html', {"form": PostForm, "error": "Error creating post."})
 
     # ¿Qué son las vistas en Python?
     # Un función de vista o una vista, como es conocida generalmente, 
