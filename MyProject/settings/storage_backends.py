@@ -4,3 +4,4 @@ class MediaStorage(S3Boto3Storage):
     bucket_name = 'filesprojectdjango'
     location = 'media'
     file_overwrite = False
+    custom_domain = '{}.s3.amazonaws.com'.format(bucket_name)
