@@ -6,7 +6,12 @@ from dotenv import load_dotenv
 load_dotenv()
 from pathlib import Path
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
+# Se usa el archivo setting,py para guardar las configuraciones de nuestro proyecto,
+# pero cuando nuestro proyecto escala podemos dividir este archivo en local y produccion.
+# por que hariamos esto? lo utilizamos para que cuando metamos cambios. No afectemos a nuestro 
+# proyecto en produccion.
+
+# Aca armamos nuestra ruta dentro del proyecto: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
@@ -14,10 +19,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+
+# Django nos va a proporcionar una secret_key esta la tenemos que guardar y
+# dejarla a; descubierto.
 SECRET_KEY = os.getenv('SECRET_KEY', default='your secret key')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+# La variable Debug cuando estemos en prod vamos la usar en false
+
+DEBUG = True
 
 
 
@@ -42,7 +52,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     "whitenoise.runserver_nostatic",   
     'storages',
-    
+    'channels',
 ]
 
 MIDDLEWARE = [
@@ -104,6 +114,12 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend' 
 ]
 
+
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels.layers.InMemoryChannelLayer"
+    }
+}
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
@@ -141,21 +157,16 @@ SOCIAL_AUTH_GITHUB_SECRET = os.getenv('SOCIAL_AUTH_GITHUB_SECRET')
 # DJANGO_SUPERUSER_PASSWORD=os.getenv('DJANGO_SUPERUSER_PASSWORD')
 # DJANGO_SUPERUSER_USERNAME=os.getenv('DJANGO_SUPERUSER_USERNAME') 
 
-# os.getenv('SOCIAL_AUTH_GITHUB_KEY')
-# os.getenv('SOCIAL_AUTH_GITHUB_SECRET')
-# SOCIAL_AUTH_REDIRECT_IS_HTTPS = True
-# SOCIAL_AUTH_FIELDS_STORED_IN_SESSION = ['state']
-# SESSION_COOKIE_SECURE = False
 # que hace setting?
 # En el archivo setting tenemos el funcionamiento de nuestro sitio aca, 
 # agregamos permisos variables aplicaciones que use nuestro sitio
-# .\
+# .
 HTTPS = 'on'
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
-
+ASGI_APPLICATION = "MyProject.asgi.application"
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
@@ -163,3 +174,8 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 # This setting tells Django at which URL static files are going to be served to the user.
 # Here, they well be accessible at your-domain.onrender.com/static/...
 
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels.layers.InMemoryChannelLayer"
+    }
+}

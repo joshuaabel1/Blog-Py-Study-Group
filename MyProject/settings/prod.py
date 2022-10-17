@@ -1,5 +1,7 @@
 from .base import *
 
+DEBUG = False
+
 
 HOST = os.getenv('HOST')
 USER = os.getenv('USER')

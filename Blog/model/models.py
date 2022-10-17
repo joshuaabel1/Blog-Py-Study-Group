@@ -5,6 +5,8 @@ from django.utils import timezone
 
 # Create your models here.
 
+# Usando el objeto models de django db vamos a crear nuestros modelos.
+
 class Post(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(null=True, max_length=120)
@@ -13,6 +15,8 @@ class Post(models.Model):
     image= models.FileField(null=True)
     
     def __str__(self):
+        # Con este metodo podemos personalizar como se veran nuestro objetos
+        # cuando los consultemos
         return self.title
     
 class Comment(models.Model):
