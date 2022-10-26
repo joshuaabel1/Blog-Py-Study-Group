@@ -35,7 +35,7 @@ python manage.py collectstatic
 
 ```
 
-<pre> Despues de esto creamos nuestro usuario admin .
+<pre>Despues de esto creamos nuestro usuario admin.
 </pre>
 
 ``` bash  

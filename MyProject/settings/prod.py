@@ -9,7 +9,7 @@ PASSWORD = os.getenv('PASSWORD')
 DBNAME = os.getenv('DBNAME')
 
 
-DATABASE_URL = f'postgres://{USER}:{PASSWORD}@{HOST}:5432/{USER}'
+DATABASE_URL = f'postgres://{USER}:{PASSWORD}@{HOST}:5432/{DBNAME}'
 DATABASES = {'default': dj_database_url.config(default=DATABASE_URL)}
 
 # Password validation
